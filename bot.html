@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProvenanceBot</title>
+<meta name="description" content="What ProvenanceBot is, what it reads, and how to opt out.">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         max-width: 44rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.55;
+         color: #1b1b1b; background: #fff; }
+  h1 { font-size: 1.7rem; margin-bottom: .2rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  code, pre { font-family: ui-monospace, Consolas, monospace; background: #f3f3f3; }
+  pre { padding: .8rem 1rem; overflow-x: auto; }
+  .muted { color: #555; }
+</style>
+</head>
+<body>
+<!-- Draft, run 5 (9 Oct 2026, worklist 372). Published by Lu on his GitHub
+     Pages site (tools/lu/33-publish-bot-page.cmd). The contact line waits for
+     the bot's own mailbox (worklist 357, tools/lu/34-bot-mailbox.cmd). -->
+
+<h1>ProvenanceBot</h1>
+<p class="muted">The user agent you may have seen in your logs:</p>
+<pre>Mozilla/5.0 (compatible; ProvenanceBot/0.1; +https://lucianjohn04-arch.github.io/bot.html)</pre>
+
+<h2>What it is</h2>
+<p>ProvenanceBot collects published reporting for a small, independent research
+project in the United Kingdom. The project keeps a record of what was reported,
+by whom and when, so that each statement can be traced back to its source, and
+uses that record to make and score forecasts about world events.</p>
+<p>It does not republish your articles, sell them, or make them available to
+anyone else. It keeps the link to your page with everything it records, so that
+your reporting stays attributed to you.</p>
+
+<h2>What it reads</h2>
+<ul>
+  <li>RSS and Atom feeds that sites publish.</li>
+  <li>Individual article pages linked from those feeds, one page at a time, with
+      several seconds between requests to the same site.</li>
+  <li>Public Telegram channel previews (<code>t.me/s/&hellip;</code>), without
+      joining any channel.</li>
+  <li>Public data services, through their published interfaces.</li>
+  <li>Your <code>robots.txt</code> and, where we have recorded one, your terms of
+      use page, so that we know what you allow.</li>
+</ul>
+<p>It does not log in, does not go past paywalls, logins or CAPTCHAs, does not
+use proxies to get around a block, and does not pretend to be a web browser.
+The text it collects may be analysed by automated tools, including AI language
+models, to work out what was reported.</p>
+
+<h2>The rules it follows</h2>
+<ul>
+  <li><strong>robots.txt.</strong> We read your <code>robots.txt</code> before
+      collecting from your site. Article pages are fetched only where it allows
+      both <code>ProvenanceBot</code> and <code>*</code>. If your
+      <code>robots.txt</code> cannot be read because your server is failing, we
+      fetch no article pages from your site until it can be.</li>
+  <li><strong>Changes.</strong> For sites whose feeds we collect, we re-read
+      <code>robots.txt</code> on every collection run and your terms page
+      weekly. A change that touches automated access, AI use or storage stops
+      collection from your site at once, until a person has read the change.</li>
+  <li><strong>Your terms.</strong> Where we have read your terms and they bar
+      automated access, we do not collect from your site.</li>
+  <li><strong>Refusals.</strong> If your server refuses us (for example with a
+      403 or 429), we record that and stop. We never try again under a
+      different name.</li>
+  <li><strong>Pace.</strong> One request at a time per site, with a gap of
+      seconds between requests.</li>
+</ul>
+
+<h2>How to opt out</h2>
+<p>Add this to your <code>robots.txt</code> to stop ProvenanceBot collecting
+anything from your site:</p>
+<pre>User-agent: ProvenanceBot
+Disallow: /</pre>
+<p>Or block only part of the site, for example:</p>
+<pre>User-agent: ProvenanceBot
+Disallow: /private/</pre>
+<p>This takes effect the next time we read your <code>robots.txt</code>, which
+we do before each collection run, several times a day. What we already hold is
+kept as a record of what was published, but nothing more is collected.</p>
+
+<h2>Contact</h2>
+<p>Contact address to follow.</p>
+
+<p class="muted">Last updated: October 2026.</p>
+</body>
+</html>
